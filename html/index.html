@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ระบบตลาดขายของ - Economy Market</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="bg" id="marketBackground">
+            <div
+                class="market-container"
+                id="marketContainer"
+                style="display: none"
+            >
+                <!-- Header Section -->
+                <div class="market-header">
+                    <div class="market-header-left">
+                        <span class="market-title">ตลาดกลาง</span>
+                    </div>
+                    <div class="market-header-right">
+                        <span class="market-price-title">ตารางราคา</span>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="market-content">
+                    <!-- Left Panel - Inventory/Sell Items -->
+                    <div class="market-inventory-panel">
+                        <div class="inventory-content">
+                            <div class="inventory-grid">
+                                <!-- Item 1: Bread -->
+                                <div class="inventory-item" data-item="bread">
+                                    <div class="item-icon bread-icon"></div>
+                                    <div class="item-quantity">14 | 20</div>
+                                    <div class="item-name">ขนมปัง</div>
+                                </div>
+
+                                <!-- Item 2: Water -->
+                                <div class="inventory-item" data-item="water">
+                                    <div class="item-icon water-icon"></div>
+                                    <div class="item-quantity">15 | 20</div>
+                                    <div class="item-name">น้ำเปล่า</div>
+                                </div>
+
+                                <!-- Item 3: Lord of the World -->
+                                <div class="inventory-item" data-item="lord">
+                                    <div class="item-icon lord-icon"></div>
+                                    <div class="item-quantity">1 | 15</div>
+                                    <div class="item-name">เจ้าโลก</div>
+                                </div>
+
+                                <!-- Item 4: Mango -->
+                                <div class="inventory-item" data-item="mango">
+                                    <div class="item-icon mango-icon"></div>
+                                    <div class="item-quantity">8 | 25</div>
+                                    <div class="item-name">มะม่วง</div>
+                                </div>
+
+                                <!-- Item 5: Strawberry -->
+                                <div
+                                    class="inventory-item"
+                                    data-item="strawberry"
+                                >
+                                    <div
+                                        class="item-icon strawberry-icon"
+                                    ></div>
+                                    <div class="item-quantity">11 | 30</div>
+                                    <div class="item-name">สตรอว์เบอร์รี</div>
+                                </div>
+
+                                <!-- Item 6: Banana -->
+                                <div class="inventory-item" data-item="banana">
+                                    <div class="item-icon banana-icon"></div>
+                                    <div class="item-quantity">25 | 30</div>
+                                    <div class="item-name">กล้วย</div>
+                                </div>
+
+                                <!-- Item 7: Donut -->
+                                <div class="inventory-item" data-item="donut">
+                                    <div class="item-icon donut-icon"></div>
+                                    <div class="item-quantity">12 | 20</div>
+                                    <div class="item-name">โดนัท</div>
+                                </div>
+
+                                <!-- Item 8: Milk -->
+                                <div class="inventory-item" data-item="milk">
+                                    <div class="item-icon milk-icon"></div>
+                                    <div class="item-quantity">6 | 20</div>
+                                    <div class="item-name">นมกล่อง</div>
+                                </div>
+
+                                <!-- Item 9: Fried Rice -->
+                                <div
+                                    class="inventory-item"
+                                    data-item="friedrice"
+                                >
+                                    <div class="item-icon friedrice-icon"></div>
+                                    <div class="item-quantity">3 | 10</div>
+                                    <div class="item-name">ข้าวผัดหอย</div>
+                                </div>
+
+                                <!-- Item 10: Lobster -->
+                                <div class="inventory-item" data-item="lobster">
+                                    <div class="item-icon lobster-icon"></div>
+                                    <div class="item-quantity">3 | 5</div>
+                                    <div class="item-name">กุ้งล็อบสเตอร์</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sell All Button - Below inventory panel -->
+                        <div class="sell-all-container">
+                            <button class="sell-all-btn" id="sellAllBtn">
+                                <span>ขายทั้งหมด</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel - Price List -->
+                    <div class="market-price-panel">
+                        <div class="price-list">
+                            <!-- Bread Price -->
+                            <div class="price-item" data-item="bread">
+                                <div class="price-icon bread-icon"></div>
+                                <div class="price-name">ขนมปัง</div>
+                                <div class="price-value">19</div>
+                                <div class="price-trend down">↓</div>
+                            </div>
+
+                            <!-- Water Price -->
+                            <div class="price-item" data-item="water">
+                                <div class="price-icon water-icon"></div>
+                                <div class="price-name">น้ำเปล่า</div>
+                                <div class="price-value">23</div>
+                                <div class="price-trend down">↓</div>
+                            </div>
+
+                            <!-- Lord Price -->
+                            <div class="price-item" data-item="lord">
+                                <div class="price-icon lord-icon"></div>
+                                <div class="price-name">เจ้าโลก</div>
+                                <div class="price-value">40</div>
+                                <div class="price-trend stable">●</div>
+                            </div>
+
+                            <!-- Mango Price -->
+                            <div class="price-item" data-item="mango">
+                                <div class="price-icon mango-icon"></div>
+                                <div class="price-name">มะม่วง</div>
+                                <div class="price-value">41</div>
+                                <div class="price-trend down">↓</div>
+                            </div>
+
+                            <!-- Strawberry Price -->
+                            <div class="price-item" data-item="strawberry">
+                                <div class="price-icon strawberry-icon"></div>
+                                <div class="price-name">สตรอว์เบอร์รี</div>
+                                <div class="price-value">46</div>
+                                <div class="price-trend stable">●</div>
+                            </div>
+
+                            <!-- Banana Price -->
+                            <div class="price-item" data-item="banana">
+                                <div class="price-icon banana-icon"></div>
+                                <div class="price-name">กล้วย</div>
+                                <div class="price-value">48</div>
+                                <div class="price-trend stable">●</div>
+                            </div>
+
+                            <!-- Donut Price -->
+                            <div class="price-item" data-item="donut">
+                                <div class="price-icon donut-icon"></div>
+                                <div class="price-name">โดนัท</div>
+                                <div class="price-value">73</div>
+                                <div class="price-trend up">↑</div>
+                            </div>
+
+                            <!-- Milk Price -->
+                            <div class="price-item" data-item="milk">
+                                <div class="price-icon milk-icon"></div>
+                                <div class="price-name">นมกล่อง</div>
+                                <div class="price-value">66</div>
+                                <div class="price-trend down">↓</div>
+                            </div>
+
+                            <!-- Fried Rice Price -->
+                            <div class="price-item" data-item="friedrice">
+                                <div class="price-icon friedrice-icon"></div>
+                                <div class="price-name">ข้าวผัดหอย</div>
+                                <div class="price-value">135</div>
+                                <div class="price-trend stable">●</div>
+                            </div>
+
+                            <!-- Lobster Price -->
+                            <div class="price-item" data-item="lobster">
+                                <div class="price-icon lobster-icon"></div>
+                                <div class="price-name">กุ้งล็อบสเตอร์</div>
+                                <div class="price-value">235</div>
+                                <div class="price-trend up">↑</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- Sell Prompt UI -->
+        <div class="sell-prompt" id="sellPrompt" style="display: none;">
+            <div class="prompt-content">
+                <span class="prompt-text">กด</span>
+                <span class="prompt-key">G</span>
+                <span class="prompt-text">เพื่อเปิดเมนู</span>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

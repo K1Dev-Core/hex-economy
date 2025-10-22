@@ -1,0 +1,1970 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Sarabun");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Athiti:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --main-color: gold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+text,
+a,
+b,
+ul,
+ol,
+ui {
+    color: white;
+    font-family: "Sarabun";
+}
+.material-icons {
+    color: white;
+}
+
+body {
+    overflow: hidden;
+
+    background-attachment: fixed;
+}
+
+body > * {
+    flex-shrink: 0;
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@keyframes offsettozero {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.bg {
+    display: none;
+    background: #00000073;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.storage-viewer {
+    width: 90%;
+    height: 85%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+    /* border: 1px solid red; */
+
+    display: flex;
+}
+
+.storage-viewer > div {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.storage-viewer > div:nth-child(1) {
+    padding-right: 5em;
+}
+
+.storage-viewer > div:nth-child(2) {
+    padding-left: 5em;
+    border-left: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.storage-viewer .sv-header {
+    flex: 0 0 90px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.storage-viewer .sv-inventory {
+    flex: 1;
+    position: relative;
+    padding: 1.2em 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.storage-viewer .sv-footer {
+    padding-top: 1.5%;
+    flex: 0 0 40px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.storage-viewer .sv-footer-2 {
+    padding-top: 1.5%;
+    flex: 0 0 120px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.27);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.storage-viewer .sv-inventory > .sv-inventory-content {
+    flex: 0 0 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1.2em 0.8em;
+
+    overflow-y: auto;
+}
+
+.storage-viewer .sv-inventory > .sv-inventory-content::-webkit-scrollbar {
+    display: none;
+}
+
+.storage-viewer .sv-inventory > .sv-inventory-content .sv-inventory-history {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 0.7em;
+}
+
+.sv-inventory-history .svih-next {
+    flex: 0 0 40px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.0063) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.sv-inventory-history .svih-next:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sv-inventory-history .svih-next > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    color: #8d8d8d;
+    transition: 0.2s;
+}
+
+.sv-inventory-history .svih-next:hover > span {
+    color: #b9b9b9;
+}
+
+.sv-inventory-history .svih-item {
+    flex: 0 0 100px;
+    background: linear-gradient(
+        180deg,
+        rgba(11, 255, 108, 0.03) 0%,
+        rgba(255, 255, 255, 0.0063) 100%
+    );
+    border: 1px solid rgba(76, 134, 62, 0.31);
+
+    display: flex;
+}
+
+.sv-inventory-history .svih-item:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(11, 255, 108, 0.06) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+}
+
+.sv-inventory-history .svih-item.red {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 11, 11, 0.03) 0%,
+        rgba(255, 255, 255, 0.0063) 100%
+    );
+    border: 1px solid rgba(134, 62, 62, 0.31);
+}
+
+.sv-inventory-history .svih-item.red:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 11, 11, 0.06) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+}
+
+.sv-inventory-history .svih-item > .svihi-image {
+    flex: 0 0 100px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sv-inventory-history .svih-item > .svihi-content {
+    flex: 1;
+    position: relative;
+}
+
+.sv-inventory-history .svih-item > .svihi-content > .svihic-title {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 46px;
+
+    position: absolute;
+    left: 1%;
+    top: 15%;
+
+    width: 50%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sv-inventory-history .svih-item > .svihi-content > .svihic-desc {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    color: #8d8d8d;
+
+    position: absolute;
+    left: 1%;
+    top: 50%;
+
+    width: 50%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sv-inventory-history .svih-item > .svihi-content > .svihic-amount {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 51px;
+
+    text-align: right;
+
+    position: absolute;
+    right: 3%;
+    top: 15%;
+}
+
+.sv-inventory-history .svih-item > .svihi-content > .svihic-time {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    text-align: right;
+
+    color: #8d8d8d;
+
+    position: absolute;
+    right: 3%;
+    top: 60%;
+}
+
+.storage-viewer .sv-inventory-content > .sv-inventory-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    grid-row-gap: 0.5em;
+}
+
+.svi-slot {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.0063) 100%
+    );
+    border: 1px solid rgba(95, 95, 95, 0.31);
+}
+
+.svi-slot:before {
+    content: "";
+    padding-bottom: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.svi-slot:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+    );
+}
+
+.svi-slot.red {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 15, 0, 0.12) 0%,
+        rgba(45, 45, 45, 0.0696) 100%
+    );
+    border: 1px solid rgba(135, 0, 0, 0.37);
+}
+
+.svi-slot.red:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 15, 0, 0.22) 0%,
+        rgba(45, 45, 45, 0.13) 100%
+    );
+    border: 1px solid rgba(135, 0, 0, 0.37);
+}
+
+.svi-slot .svis-amount {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vh;
+    line-height: 1.5vh;
+
+    text-align: right;
+
+    color: #ffffff;
+
+    position: absolute;
+    right: 8%;
+    top: 2%;
+    z-index: 2;
+}
+
+.svi-slot.red .svis-amount {
+    color: rgb(151, 0, 0);
+}
+
+.svi-slot .svis-image {
+    width: 100%;
+    height: 100%;
+
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.svi-slot.red .svis-image {
+    opacity: 0.5;
+}
+
+.storage-viewer .sv-weight-bar {
+    position: relative;
+    width: 100%;
+    height: 14px;
+
+    background: rgba(37, 86, 42, 0.35);
+}
+
+.storage-viewer .sv-weight-bar > div {
+    width: 100%;
+    height: 100%;
+
+    background: rgba(37, 86, 42, 0.35);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.storage-viewer .sv-weight-bar > span {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+}
+
+.storage-viewer .box-stats {
+    display: flex;
+    min-height: 70px;
+    height: 90%;
+}
+
+.storage-viewer .box-stats > .bs-image {
+    flex: 0 0 70px;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.storage-viewer .box-stats > .bs-content {
+    flex: 1;
+    position: relative;
+}
+
+.storage-viewer .box-stats > .bs-content > .bsc-title {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 46px;
+
+    color: #ffffff;
+
+    position: absolute;
+    left: 1%;
+    top: 20%;
+
+    width: 40%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.storage-viewer .box-stats > .bs-content > .bsc-desc {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+
+    color: #ffffff;
+    position: absolute;
+    left: 1%;
+    top: 55%;
+}
+
+.storage-viewer .box-stats > .bs-content > .bsc-viewer {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: right;
+
+    color: #cdcdcd;
+    position: absolute;
+    right: 1%;
+    top: 15%;
+}
+
+.storage-viewer .box-stats > .bs-content > .bsc-btn {
+    position: absolute;
+    right: 1%;
+    top: 50%;
+
+    min-width: auto;
+    min-height: auto;
+
+    width: 158px;
+    height: 32px;
+}
+
+.storage-viewer .box-stats > .bs-content > .bsc-btn-2 {
+    position: absolute;
+    right: 175px;
+    top: 50%;
+
+    min-width: auto;
+    min-height: auto;
+
+    width: 158px;
+    height: 32px;
+}
+
+.storage-viewer .sv-header > .svh-title {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 77px;
+
+    color: #ffffff;
+}
+
+.storage-viewer .sv-header > .svh-desc {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    text-align: right;
+
+    color: #cdcdcd;
+
+    position: absolute;
+    right: 0.5vh;
+    bottom: 20%;
+
+    width: 45%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.storage-viewer .sv-header > .svh-desc2 {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    text-align: right;
+
+    color: #cdcdcd;
+
+    position: absolute;
+    right: 0.5vh;
+    bottom: 20%;
+}
+
+.storage-viewer .sv-header > .svh-desc3 {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+
+    background: linear-gradient(
+        180deg,
+        #ffc700 0%,
+        rgba(255, 199, 0, 0.7) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    position: absolute;
+    right: 0.5vh;
+    bottom: 50%;
+
+    width: 30%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.storage {
+    width: 90%;
+    height: 90%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.storage-header {
+    flex: 0 0 105px;
+    position: relative;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.27);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+
+    overflow: hidden;
+}
+
+.storage-header > .storage-logo {
+    width: 213px;
+    height: 106px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.storage-header > .storage-header-title {
+    font-size: 67px;
+    font-family: "Inter";
+    color: #939393;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+}
+
+.storage-content {
+    flex: 1;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sequence-loading-ring {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+
+    position: absolute;
+    left: 49.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sequence-loading-ring:after {
+    content: " ";
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading-ring 1.2s linear infinite;
+}
+
+@keyframes loading-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sequence-loading > .sequence-title {
+    display: block;
+    text-align: center;
+
+    margin-top: 0.7em;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 86px;
+    text-align: center;
+
+    color: #ffc700;
+}
+
+.sequence-loading > .sequence-desc {
+    display: block;
+    text-align: center;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.sequence-loading > img {
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+
+    animation: safe-anim 1.2s ease-in-out infinite;
+}
+
+@keyframes safe-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.sequence-password > .sequence-title {
+    display: block;
+    text-align: center;
+
+    margin-top: 0.7em;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 86px;
+    text-align: center;
+
+    color: #ffc700;
+}
+
+.sequence-password > .sequence-desc {
+    display: block;
+    text-align: center;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.sequence-password > .sequence-password-content {
+    text-align: center;
+    padding: 2em 32%;
+}
+
+.sequence-password .spc-1 {
+    width: 100%;
+    max-width: 709px;
+    min-height: 85px;
+    text-align: center;
+    font-size: 70px;
+}
+
+.sequence-password .spc-2 {
+    margin-top: 2em;
+}
+
+.password-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5%;
+    grid-auto-rows: 1fr;
+}
+
+.password-grid > div {
+    position: relative;
+
+    min-height: 103px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.password-grid > div > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 275;
+    font-size: 40px;
+    line-height: 96px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.password-grid > div:hover {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.password-grid > div.green > span {
+    color: lime;
+}
+
+.password-grid > div.red > span {
+    color: red;
+}
+
+.sequence-select {
+    flex: 0 0 100%;
+    position: relative;
+}
+
+.sequence-select > span {
+    display: block;
+    text-align: center;
+
+    font-size: 54px;
+    font-family: "Athiti";
+    font-weight: 300;
+
+    line-height: 3em;
+}
+
+.sequence-select > .sequence-select-content {
+    width: 100%;
+    height: 65%;
+
+    display: flex;
+    column-gap: 3em;
+
+    padding: 0 8em;
+    justify-content: center;
+}
+
+.sequence-select > .sequence-select-content > div {
+    flex: 0 0 50%;
+    position: relative;
+
+    background: rgba(217, 217, 217, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.2s;
+}
+
+.sequence-select > .sequence-select-content > div:hover {
+    background: rgba(217, 217, 217, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sequence-select > .sequence-select-content > div > span {
+    width: fit-content;
+    font-size: 42px;
+    font-family: "Athiti";
+    font-weight: 300;
+
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+
+    translate: -50% 0;
+    white-space: nowrap;
+}
+
+.sequence-select > .sequence-select-content > div > img {
+    width: 65%;
+    max-width: 450px;
+
+    position: absolute;
+    left: 50%;
+    top: 40%;
+
+    translate: -50% -50%;
+    transition: 0.2s;
+}
+
+.sequence-select > .sequence-select-content > div:hover > img {
+    scale: 1.05;
+}
+
+.sequence-header {
+    flex: 0 0 15%;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.sequence-header > .sequence-title {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.5em;
+    line-height: 86px;
+
+    color: #ffb800;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sequence-header > .sequence-desc {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 43px;
+
+    color: #ffffff;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.sequence-header > .sequence-title-right {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 86px;
+    text-align: right;
+
+    color: #00fff0;
+
+    position: absolute;
+    right: 0;
+    bottom: 12%;
+}
+
+.sequence-header > .sequence-desc-right {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 43px;
+
+    color: #ffffff;
+
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.msl-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    text-align: center;
+}
+
+.msl-text > tred {
+    font-size: 26px;
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+}
+
+.msl-text > span {
+    font-size: 16px;
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+}
+
+.sequence-select-box {
+    flex: 0 0 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sequence-select-box-content {
+    flex: 1;
+    display: flex;
+}
+
+.sequence-select-box-content > div {
+    flex: 0 0 50%;
+    position: relative;
+
+    vertical-align: middle;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sequence-select-box-content > div::-webkit-scrollbar {
+    display: none;
+}
+
+.sequence-select-box-content > div:nth-child(1) > div:nth-child(1) > text {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 90px;
+
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+.sequence-select-box-content > div:nth-child(1) > div:nth-child(1) > span {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 58px;
+
+    color: #656565;
+    vertical-align: middle;
+    transition: 0.2s;
+}
+
+.sequence-select-box-content
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > span.active {
+    color: #ffffff;
+}
+
+.sequence-select-box-content
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > span:hover {
+    color: #ffb800;
+}
+
+.sequence-select-box-content > div:nth-child(1) > div:nth-child(2) {
+    flex: 0 0 80%;
+    max-height: 550px;
+    padding: 1em 2.5em 1em 0;
+
+    overflow-y: auto;
+}
+
+.sequence-select-box-content
+    > div:nth-child(1)
+    > div:nth-child(2)::-webkit-scrollbar {
+    display: none;
+}
+
+.sequence-select-box-content > div:nth-child(1) > div:nth-child(2) > div {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 1em;
+}
+
+.sequence-select-box-content > div:nth-child(2) {
+    padding: 1% 3%;
+}
+
+.sequence-select-box-content > div:nth-child(2):before {
+    height: 100%;
+    display: block;
+    width: 1px;
+    content: "";
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    position: absolute;
+    left: 0;
+}
+
+.sequence-select-box-content .ssbc-1 {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 58px;
+
+    color: #ffffff;
+}
+
+.sequence-select-box-content .ssbc-2 {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 45px;
+
+    margin-top: 0.5em;
+
+    color: #ffffff;
+}
+
+.sequence-select-box-content .ssbc-3 {
+    margin-top: 2em;
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    column-gap: 1em;
+}
+
+.sequence-select-box-content .ssbc-6 {
+    width: 100%;
+    max-width: 238px;
+}
+
+.sequence-select-box-content .ssbc-7 {
+    width: 100%;
+    max-width: 238px;
+}
+
+.storage-model-item {
+    position: relative;
+    flex: 0 0 128px;
+    min-height: 128px;
+    background: rgba(217, 217, 217, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.2s;
+
+    display: flex;
+}
+
+.storage-model-item:hover {
+    background: rgba(217, 217, 217, 0.05);
+}
+
+.storage-model-item.active {
+    border: 1px solid rgba(255, 168, 0, 0.5);
+}
+
+.storage-model-item > div:nth-child(2) {
+    flex: 1;
+    position: relative;
+}
+
+.storage-model-item .smi-image {
+    flex: 0 0 128px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 85%;
+}
+
+.storage-model-item .smi-title {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 67px;
+
+    position: absolute;
+    left: 1%;
+    top: 10%;
+}
+
+.storage-model-item .smi-desc {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 30px;
+
+    position: absolute;
+    left: 1%;
+    top: 52%;
+
+    color: #dfdfdf;
+}
+
+.storage-model-item .smi-price {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 67px;
+    text-align: right;
+
+    color: #ffffff;
+
+    position: absolute;
+    right: 3%;
+    top: 15%;
+}
+
+.storage-model-item .smi-price-desc {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: right;
+
+    color: #b5b5b5;
+
+    position: absolute;
+    right: 3%;
+    top: 58%;
+}
+
+.sequence-buy {
+    flex: 0 0 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sequence-buy-content {
+    flex: 1;
+    display: flex;
+}
+
+.sequence-buy-content > div {
+    flex: 0 0 50%;
+    position: relative;
+
+    vertical-align: middle;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sequence-buy-content > div:nth-child(1) {
+    flex: 1;
+    padding: 1em 2.5em 1em 0;
+}
+
+.sequence-buy-content > div:nth-child(1) > div {
+    max-height: 550px;
+
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 1em;
+    overflow-y: auto;
+}
+
+.sequence-buy-content > div:nth-child(1) > div::-webkit-scrollbar {
+    display: none;
+}
+
+.sequence-buy-content > div:nth-child(2) {
+    padding: 1% 3%;
+}
+
+.sequence-buy-content > div:nth-child(2):before {
+    height: 100%;
+    display: block;
+    width: 1px;
+    content: "";
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    position: absolute;
+    left: 0;
+}
+
+.sequence-buy-content .sbc-1 {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 58px;
+}
+
+.sequence-buy-content .sbc-2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.sequence-buy-content .sbc-3 {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.sequence-buy-content .sbc-4 {
+    width: 100%;
+    margin-top: 1em;
+    border-top: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.sequence-buy-content .sbc-5 {
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 20px;
+}
+
+.sequence-buy-content .sbc-6 {
+    width: 80%;
+}
+
+.sequence-buy-content .sbc-7 {
+    margin-top: 2em;
+}
+
+.simple-input {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 64px;
+    color: white;
+    padding: 1% 2%;
+    font-size: 20px;
+}
+
+.simple-btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-width: 285px;
+    min-height: 51px;
+
+    position: relative;
+    transition: 0.2s;
+}
+
+.simple-btn:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.simple-btn > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+
+    font-family: "Athiti";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 32px;
+
+    text-align: center;
+}
+
+.simple-btn.green {
+    border: 1px solid rgba(82, 255, 0, 0.12);
+}
+
+.simple-btn.blue {
+    border: 1px solid rgba(0, 224, 255, 0.12);
+}
+
+.simple-btn.orange {
+    border: 1px solid rgba(255, 153, 0, 0.12);
+}
+
+@media screen and (min-width: 2560px) {
+    .storage {
+        width: 60%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .storage-viewer .sv-inventory-content > .sv-inventory-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .storage-viewer .sv-header > .svh-desc {
+        width: 35%;
+    }
+
+    .storage-viewer .sv-header > .svh-desc3 {
+        width: 40%;
+        /* background: red; */
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .storage-viewer .sv-inventory-content > .sv-inventory-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .storage-viewer > div:nth-child(1) {
+        padding-right: 1em;
+    }
+
+    .storage-viewer > div:nth-child(2) {
+        padding-left: 1em;
+    }
+
+    .storage-viewer .sv-header > .svh-title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+    }
+
+    .sv-inventory-history .svih-item > .svihi-image {
+        display: none;
+    }
+
+    .sv-inventory-history .svih-item > .svihi-content > .svihic-title {
+        left: 5%;
+    }
+
+    .sv-inventory-history .svih-item > .svihi-content > .svihic-desc {
+        left: 5%;
+    }
+
+    .storage-viewer .box-stats > .bs-image {
+        display: none;
+    }
+
+    .storage-viewer .box-stats > .bs-content > .bsc-title {
+        display: none;
+    }
+
+    .storage-viewer .box-stats > .bs-content > .bsc-desc {
+        display: none;
+    }
+
+    .storage-viewer .sv-header > .svh-desc {
+        display: none;
+    }
+
+    .storage-viewer .sv-header > .svh-desc2 {
+        display: none;
+    }
+
+    .storage-viewer .sv-header > .svh-desc3 {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .sequence-password {
+        scale: 0.8;
+        transform-origin: top center;
+    }
+
+    .sequence-header > .sequence-title {
+        font-size: 2.5em;
+    }
+
+    .sequence-header > .sequence-desc {
+        font-size: 17px;
+        top: 60%;
+    }
+
+    .sequence-header > .sequence-title-right {
+        font-size: 2.5em;
+        bottom: 0%;
+    }
+
+    .sequence-header > .sequence-desc-right {
+        font-size: 17px;
+    }
+
+    .storage-viewer .box-stats > .bs-content > .bsc-btn {
+        scale: 0.8;
+        transform-origin: bottom right;
+    }
+
+    .storage-viewer .box-stats > .bs-content > .bsc-btn-2 {
+        right: 140px;
+        scale: 0.8;
+        transform-origin: bottom right;
+    }
+}
+
+/* ===== ECONOMY MARKET SYSTEM ===== */
+.market-container {
+    width: 65%;
+    height: 75%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background: rgba(30, 30, 30, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    scale: 0.9;
+    transition: opacity 0.4s ease-in-out, scale 0.4s ease-in-out;
+}
+
+.market-container.show {
+    opacity: 1;
+    scale: 1;
+}
+
+
+.market-header {
+    flex: 0 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em;
+    background: linear-gradient(180deg, rgba(255, 199, 0, 0.2) 0%, rgba(255, 153, 0, 0.1) 100%);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+}
+
+.market-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.market-header-left .material-icons {
+    color: #ffff00;
+    font-size: 24px;
+}
+
+.market-title {
+    font-family: "Athiti";
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.market-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.market-price-title {
+    font-family: "Athiti";
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.market-content {
+    flex: 1;
+    display: flex;
+    padding: 0;
+    gap: 0;
+}
+
+.market-inventory-panel {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 1em 1.5em 1.5em 1.5em;
+}
+
+.panel-header {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-header h3 {
+    font-family: "Athiti";
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffff00;
+    margin: 0;
+}
+
+.inventory-content {
+    flex: 1;
+    background: rgba(40, 40, 40, 0.3);
+    padding: 0.5em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.inventory-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.inventory-content::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.5);
+}
+
+.inventory-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+}
+
+.inventory-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 0.8em;
+}
+
+.inventory-item {
+    position: relative;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 1.2em;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory-item:hover {
+    background: rgba(60, 60, 60, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.inventory-item.selected {
+    background: rgba(40, 40, 40, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.inventory-item.disabled {
+    background: rgba(60, 60, 60, 0.5);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.inventory-item.disabled .item-icon {
+    opacity: 0.3;
+}
+
+.inventory-item.disabled .item-name {
+    color: #888888;
+}
+
+.inventory-item.disabled .item-quantity {
+    color: #888888;
+}
+
+.item-icon {
+    width: 56px;
+    height: 56px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0.5em;
+}
+
+.item-icon-image {
+    width: 56px;
+    height: 56px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0.5em;
+}
+
+/* Item Icons */
+.bread-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23D2691E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>');
+}
+.water-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300BFFF"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+.lord-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF69B4"><circle cx="12" cy="12" r="10"/></svg>');
+}
+.mango-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+.strawberry-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF6347"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+.banana-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFF00"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+.donut-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238B4513"><circle cx="12" cy="12" r="8" fill="none" stroke="%238B4513" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg>');
+}
+.milk-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFFFF"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M10 6h4v12h-4z"/></svg>');
+}
+.friedrice-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFA500"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+.lobster-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23DC143C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+}
+
+.item-quantity {
+    font-family: "Athiti";
+    font-size: 10px;
+    font-weight: 400;
+    color: #ffffff;
+
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 4px;
+    border-radius: 0;
+}
+
+.item-name {
+    font-family: "Athiti";
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.market-price-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1.5em 1.5em 1.5em;
+}
+
+.price-list {
+    flex: 1;
+    background: rgba(40, 40, 40, 0.3);
+    padding: 0.5em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.price-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.price-list::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.5);
+}
+
+.price-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+}
+
+.price-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.price-item {
+    display: flex;
+    align-items: center;
+    padding: 0.6em 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 0.8em;
+    background: rgba(40, 40, 40, 0.9);
+    margin-bottom: 0.1em;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-icon {
+    width: 28px;
+    height: 28px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.price-name {
+    font-family: "Athiti";
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    flex: 1;
+}
+
+.price-value {
+    font-family: "Athiti";
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-right: 0.5em;
+}
+
+.price-trend {
+    font-family: "Athiti";
+    font-size: 14px;
+    font-weight: 400;
+    width: 18px;
+    text-align: center;
+}
+
+.price-trend.up {
+    color: #00aa00;
+}
+
+.price-trend.down {
+    color: #aa0000;
+}
+
+.price-trend.stable {
+    color: #ffff00;
+}
+
+.sell-all-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    margin-top: 1em;
+}
+
+.sell-all-btn {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(180deg, rgba(255, 199, 0, 0.2) 0%, rgba(255, 153, 0, 0.1) 100%);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+    border-radius: 0px;
+    color: #FFFFFF;
+    font-family: 'Athiti';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sell-all-btn:hover {
+    background: linear-gradient(180deg, rgba(255, 199, 0, 0.3) 0%, rgba(255, 153, 0, 0.2) 100%);
+    border: 1px solid rgba(255, 199, 0, 0.5);
+}
+
+.sell-all-btn:active {
+    transform: translateY(0);
+}
+
+.sell-all-btn span {
+    font-family: "Athiti";
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.sell-prompt {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.sell-prompt.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.sell-prompt.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.prompt-content {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Athiti', sans-serif;
+}
+
+.prompt-text {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.prompt-key {
+    background: linear-gradient(180deg, rgba(255, 199, 0, 0.2) 0%, rgba(255, 153, 0, 0.1) 100%);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+    color: #ffffff;
+    padding: 4px 8px;
+
+    font-size: 16px;
+    font-weight: 400;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1280px) {
+    .inventory-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .market-content {
+        gap: 0;
+        padding: 0;
+    }
+
+    .market-container {
+        width: 80%;
+        height: 75%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .inventory-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .market-container {
+        width: 85%;
+        height: 80%;
+    }
+
+    .market-header {
+        padding: 0 1em;
+    }
+
+    .market-title,
+    .market-price-title {
+        font-size: 20px;
+    }
+
+    .market-inventory-panel,
+    .market-price-panel {
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .market-content {
+        flex-direction: column;
+    }
+
+    .market-inventory-panel,
+    .market-price-panel {
+        flex: none;
+    }
+
+    .market-price-panel {
+        max-height: 300px;
+    }
+}
