@@ -1,11 +1,11 @@
-# Hex Economy - ระบบเศรษฐกิจ
+# Hex Economy - ระบบเศรษฐกิจ VORP
 
 **👨‍💻 Created by K1Dev Team**  
 [Join our Discord](https://discord.gg/vWcYNgAv8S) for support & updates!
 
 
 ## 🎬 ตัวอย่าง
-[ชมวิดีโอตัวอย่าง (YouTube)](https://youtu.be/aUH7a8vynZ4)
+[ชมวิดีโอตัวอย่าง (YouTube)](https://youtu.be/lFOk-SrN7VI)
 
 ## การติดตั้ง
 
@@ -49,4 +49,5 @@ Config.Items = {
 ## คำสั่ง
 
 - `/updateprices` - อัพเดทราคาใหม่ (สำหรับแอดมิน)
+
 
